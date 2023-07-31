@@ -1,1 +1,56 @@
-<p>registros works!</p>
+<div>
+    <h2>Registros</h2>
+    <div>
+        <label>Buscar por Cliente o Tipo de Interacción:</label>
+        <input type="text" [(ngModel)]="terminoBusqueda" (input)="buscarRegistros()">
+    </div>
+
+    <table>
+        <tr>
+            <th>Código de registro</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Tipo de interacción</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let registro of registrosFiltrados">
+            <td>{{ registro.CodigoRegistro }}</td>
+            <td>{{ registro.Fecha }}</td>
+            <td>{{ registro.Cliente }}</td>
+            <td>{{ registro.TipoInteraccion }}</td>
+            <td>{{ registro.Descripcion }}</td>
+            <td>
+                <button (click)="seleccionarRegistro(registro)">Editar</button>
+                <button (click)="eliminarRegistro(registro.CodigoRegistro)">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Formulario de Registro</h3>
+    <div>
+        <label>Código de registro:</label>
+        <input type="text" [(ngModel)]="registroSeleccionado.CodigoRegistro">
+
+        <label>Fecha:</label>
+        <input type="date" [(ngModel)]="registroSeleccionado.Fecha">
+
+        <label>Cliente:</label>
+        <input type="text" [(ngModel)]="registroSeleccionado.Cliente">
+
+        <label>Tipo de interacción:</label>
+        <select [(ngModel)]="registroSeleccionado.TipoInteraccion">
+          <option value="TelefonoFijo">Teléfono Fijo</option>
+          <option value="Celular">Celular</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+        </select>
+
+        <label>Descripción:</label>
+        <textarea [(ngModel)]="registroSeleccionado.Descripcion"></textarea>
+
+        <button (click)="agregarRegistro(registroSeleccionado)">Agregar</button>
+        <button (click)="actualizarRegistro(registroSeleccionado)">Actualizar</button>
+    </div>
+</div>
