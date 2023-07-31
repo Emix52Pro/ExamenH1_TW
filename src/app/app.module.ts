@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrosComponent } from './components/registros/registros.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     HomeComponent,
     LoginComponent,
     RegistrosComponent,
-    RegistroComponent
+    RegistroComponent,
+    NavbarComponent
 
   ],
   imports: [
